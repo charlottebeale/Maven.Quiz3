@@ -24,7 +24,7 @@ public class StringUtils {
     }
 
     public static Boolean isCharacterAtIndex(String baseString, Character characterToCheckFor, Integer indexOfString) {
-        return baseString.charAt(indexOfString) == characterToCheckFor;
+        return characterToCheckFor.equals(baseString.charAt(indexOfString));
     }
 
     public static String[] getAllSubStrings(String string) {

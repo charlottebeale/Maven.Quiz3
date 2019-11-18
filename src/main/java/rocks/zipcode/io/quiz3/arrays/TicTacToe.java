@@ -15,7 +15,7 @@ public class TicTacToe {
     }
 
     public TicTacToe() {
-        board = new String [][];
+        board = new String [0][0];
     }
 
     public String[] getRow(Integer value) {
@@ -52,7 +52,7 @@ public class TicTacToe {
     }
 
     public Boolean isDiag2Homogeneous(){
-        String[] diag1 = {board[2][0], board[1][1], board[0][2]};
+        String[] diag2 = {board[2][0], board[1][1], board[0][2]};
         return isArrayHomogeneous(diag2);
     }
 

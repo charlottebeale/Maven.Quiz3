@@ -10,7 +10,7 @@ import java.util.List;
     public class Lab {
 
     private String labName;
-    private LabStatus;
+    private LabStatus labStatus;
 
     public Lab() {
         this(null);
@@ -26,7 +26,7 @@ import java.util.List;
     }
 
     public void setStatus(LabStatus labStatus) {
-        this.labStatus = LabStatus;
+        this.labStatus = labStatus;
     }
 
     public LabStatus getStatus() {

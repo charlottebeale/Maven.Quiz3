@@ -10,35 +10,29 @@ public enum RockPaperScissorHandSign {
 
     public RockPaperScissorHandSign getWinner() {
 
-       RockPaperScissorHandSign winner = null;
        switch (this) {
            case ROCK:
-               winner = PAPER;
-               break;
+               return PAPER;
            case PAPER:
-               winner = SCISSOR;
-               break;
-               case SCISSOR:
-                   winner = ROCK;
-                   break;
-       }
-       return winner;
+               return SCISSOR;
+           case SCISSOR:
+               return ROCK;
+               default:
+                   throw new IllegalArgumentException("not a hand sign.");
+    }
     }
 
     public RockPaperScissorHandSign getLoser() {
-        RockPaperScissorHandSign winner = null;
+
         switch (this) {
             case ROCK:
-                winner = SCISSOR;
-                break;
+                return SCISSOR;
             case PAPER:
-                 winner = ROCK;
-                 break;
+                return ROCK;
             case SCISSOR:
-                 winner = PAPER;
-                 break;
-        }
-        return loser;
+                return PAPER;
+                default:
+                    throw new IllegalArgumentException("not a hand sign.");
     }
-    }
+}
 }

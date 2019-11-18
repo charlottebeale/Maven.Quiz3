@@ -4,11 +4,11 @@ package rocks.zipcode.io.quiz3.fundamentals;
  * @author leon on 09/12/2018.
  */
 public class PigLatinGenerator {
-    Private VowelUtils  vowelUtils;
+    private VowelUtils vowelUtils;
 
     public String translate(String str) {
         String[] words = str.split(" ");
-        Sring translated = "";
+        String translated = "";
         for(String word: words) {
             translated += translateOneWord(word) + " ";
         }
@@ -22,7 +22,7 @@ public class PigLatinGenerator {
     } else if (!vowelUtils.startsWithVowel(str)) {
         return str + "ay";
         }
-    elas {
+    else {
           Integer indexOfVowel = vowelUtils.getIndexOfFirstVowel(str);
           String substr1 = str.substring(0, indexOfVowel);
           String substr2 = str.substring(indexOfVowel);

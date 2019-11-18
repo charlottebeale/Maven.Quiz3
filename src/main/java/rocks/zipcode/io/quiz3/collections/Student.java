@@ -7,7 +7,8 @@ import java.util.ArrayList;
  * @author leon on 10/12/2018.
  */
 
-pubic class Student {
+
+public class Student {
 
    private List<Lab> labs;
 
