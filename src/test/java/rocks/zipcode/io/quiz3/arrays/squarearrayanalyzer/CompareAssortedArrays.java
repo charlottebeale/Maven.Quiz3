@@ -16,7 +16,10 @@ import java.util.List;
  */
 public class CompareAssortedArrays {
 
-    @Test
+    private SquareArrayAnalyzer;
+
+  public CompareAssortedArrays(int squareArrayAnalyzer) {SquareArrayAnalyzer = squareArrayAnalyzer;}
+  @Test
     public void test1() {
         Integer[] array = {1, 2, 3};
         Integer[] arraySquared = {1, 4, 9};
@@ -47,7 +50,7 @@ public class CompareAssortedArrays {
         array1 = intList1.toArray(new Integer[intList1.size()]);
         array2 = intList2.toArray(new Integer[intList2.size()]);
         
-        Assert.assertTrue(SquareArrayAnalyzer.compare(array1, array2));
+        Assert.assertTrue(SquareArrayAnalyz.compare(array1, array2));
     }
     
     
