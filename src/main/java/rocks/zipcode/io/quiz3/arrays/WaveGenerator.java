@@ -11,4 +11,9 @@ import java.util.List;
  public class WaveGenerator {
 
 
+
+     public static String[] wave(String str) {
+        return null;
+
+    }
 }
