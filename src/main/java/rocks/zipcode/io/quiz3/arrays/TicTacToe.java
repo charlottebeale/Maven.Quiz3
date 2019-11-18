@@ -26,40 +26,40 @@ public class TicTacToe {
         return new String[] {board[0][value], board[1][value], board[2][value]};
     }
 
-    public Boolean isRowHomogeneous(Integer rowIndex) {
+    public Boolean isRowHomogenous(Integer rowIndex) {
         String[] row = getRow(rowIndex);
-        return isArrayHomogeneous(row);
+        return isArrayHomogenous(row);
         }
 
-        public Boolean isArrayHomogeneous(String[] array) {
-            boolean homogeneous = true;
+        public Boolean isArrayHomogenous(String[] array) {
+            boolean homogenous = true;
             for(int i = 1; i < array.length; i++) {
                 if(!array[i].equals(array[i-1])) {
-                    homogeneous = false;
+                    homogenous = false;
                 }
             }
-            return homogeneous;
+            return homogenous;
     }
 
     public Boolean isColumnHomogeneous(Integer columnIndex) {
         String[] column = getColumn(columnIndex);
-        return isArrayHomogeneous(column);
+        return isArrayHomogenous(column);
     }
 
-    public Boolean isDiag1Homogeneous(){
+    public Boolean isDiag1Homogenous(){
         String[] diag1 = {board[0][0], board[1][1], board[2][2]};
-        return isArrayHomogeneous(diag1);
+        return isArrayHomogenous(diag1);
     }
 
-    public Boolean isDiag2Homogeneous(){
+    public Boolean isDiag2Homogenous(){
         String[] diag2 = {board[2][0], board[1][1], board[0][2]};
-        return isArrayHomogeneous(diag2);
+        return isArrayHomogenous(diag2);
     }
 
     public String getWinner() {
         String winner = "no winner";
         for(int i =0; i < board.length; i++) {
-            if(isRowHomogeneous(i)) {
+            if(isRowHomogenous(i)) {
                  winner = board[i][0];
             }
         }
@@ -68,10 +68,10 @@ public class TicTacToe {
                 winner = board[0][i];
             }
         }
-        if(isDiag1Homogeneous()) {
+        if(isDiag1Homogenous()) {
             winner = board[0][0];
         }
-        if(isDiag2Homogeneous()) {
+        if(isDiag2Homogenous()) {
             winner = board[0][2];
         }
         return winner;
