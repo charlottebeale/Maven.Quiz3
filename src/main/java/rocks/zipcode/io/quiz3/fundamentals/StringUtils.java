@@ -29,10 +29,18 @@ public class StringUtils {
 
     public static String[] getAllSubStrings(String string) {
 
-        return null;
+        Set<String> substrings = new LinkedHashSet<>();
+        for (int i = 0; i < string.length(); i++) {
+            for (int j = 1; j <= string.length()-i; j++) {
+                substrings.add(string.substring(i, i+j));
+            }
+        }
+        String[] substrArray = new String[substrings.size()];
+        return substrings.toArray(substrArray);
     }
 
+
     public static Integer getNumberOfSubStrings(String input){
-        return null;
+        return getAllSubStrings(input).length;
     }
 }

@@ -5,19 +5,33 @@ package rocks.zipcode.io.quiz3.fundamentals;
  */
 public class VowelUtils {
     public static Boolean hasVowels(String word) {
-        return null;
+        boolean hasVowels = false;
+        word = word.toLowerCase(); for (int i = 0; i < word.length(); i++) {
+            if (word.charAt(i) == 'a' || word.charAt(i) == 'e' || word.charAt(i) == 'i' || word.charAt(i) == 'o' || word.charAt(i) == 'u') {
+                hasVowels = true;
+            }
+        }
+        return hasVowels;
     }
 
     public static Integer getIndexOfFirstVowel(String word) {
-        return null;
+    word = word.toLowerCase(); Integer index = -1;
+    for (int i = 0; i < word.length(); i++) {
+        if (word.charAt(i) == 'a' || word.charAt(i) == 'e' || word.charAt(i) == 'i' || word.charAt(i) == 'o' || word.charAt(i) == 'u') {
+            index = i; break;
+        }
+    }
+    return index;
+
     }
 
-
     public static Boolean startsWithVowel(String word) {
-        return null;
+        word = word.toLowerCase();
+        return (word.charAt(0) == 'a' || word.charAt(0) == 'e' || word.charAt(0) == 'i' || word.charAt(0) == 'o' || word.charAt(0) == 'u');
     }
 
     public static Boolean isVowel(Character character) {
-        return null;
+        character = Character.toLowerCase(character);
+        return character == 'a' || character == 'e' || character == 'i' || character == 'o' || character == 'u';
     }
 }

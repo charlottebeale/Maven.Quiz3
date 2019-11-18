@@ -8,11 +8,12 @@ import java.util.ArrayList;
  */
 
 pubic class Student {
-    private Map<Lab, LabStatus> map;
+
+   private List<Lab> labs;
 
     public Student() {
-        map = new HashMap<>();
 
+   this(new ArrayList<>());
     }
 
     public Student(List<Lab> labs) {
@@ -20,41 +21,38 @@ pubic class Student {
     }
 
     public Lab getLab(String labName) {
-        Lab requested = null;
-        for (Lab lab: map.keySet()) {
-            if (lab.getName() == labName) {
-                requested = lab;
+        Lab retrieved = null;
+        for (Lab lab : labs) {
+            if (lab.getName().equals(labName)) {
+                retrieved = lab;
             }
         }
-        return requested;
+        return retrieved;
     }
 
     public void setLabStatus(String labName, LabStatus labStatus) {
-        Lab lab = getLab(labName);
-        if (map.containsKey(lab)) {
-            map.put(getLab(labName), labStatus);
+         Lab toSet = getLab(labName);
+        if (toSet == null) {
+            throw new UnsupportedOperationException("Lab has not been forked");
         } else {
-            throw new UnsupportedOperationException("Lab has not been forked.");
+            toSet.setStatus(labStatus);
         }
     }
 
     public void forkLab(Lab lab) {
-       map.put(lab, LabStatus.PENDING);
+       labs.add(lab);
     }
 
     public LabStatus getLabStatus(String labName) {
-        return map.get(getLab(labName));
+        return getLab(labName).getStatus();
     }
 
     @Override
     public String toString() {
         String str = "";
-        Map<Lab, LabStatus> sortedMap = new TreeMap<>(
-                Comparator.comparing(Lab::getName)
-        );
-        sortedMap.putAll(map);
-        for (Map.Entry<Lab, LabStatus> entry: sortedMap.entrySet()) {
-            str += String.format("%s > %s\n", entry.getKey().getName(), entry.getValue().toString());
+        labs.sort(Comparator.comparing(Lab::getName));
+        for (Lab lab : labs) {
+            str += String.format("%s > %s\n", lab.getName(), lab.getStatus());
         }
         return str.trim();
     }
