@@ -3,6 +3,7 @@ package rocks.zipcode.io.quiz3.collections;
 import java.util.List;
 import java.util.Comparator;
 import java.util.ArrayList;
+//import rocks.zipcode.io.quiz3.collections.Lab;
 /**
  * @author leon on 10/12/2018.
  */
@@ -11,10 +12,10 @@ import java.util.ArrayList;
 public class Student {
 
    private List<Lab> labs;
+   LabStatus labStatus;
 
     public Student() {
-
-   this(new ArrayList<>());
+        this(new ArrayList<>());
     }
 
     public Student(List<Lab> labs) {
@@ -41,7 +42,8 @@ public class Student {
     }
 
     public void forkLab(Lab lab) {
-       labs.add(lab);
+       lab.setStatus(labStatus.PENDING);
+       this.labs.add(lab);
     }
 
     public LabStatus getLabStatus(String labName) {

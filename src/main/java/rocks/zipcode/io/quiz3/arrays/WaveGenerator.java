@@ -11,7 +11,15 @@ import java.util.List;
  public class WaveGenerator {
 
 
-     public static String[] wave(String str) {
-         return null;
+    public static String[] wave(String str) {
+        str.toLowerCase();
+
+        ArrayList<String> result = new ArrayList<>();
+        for (int i = 0; i < str.length() + 1; i++) {
+
+
+        }
+        return null;
     }
 }
+
