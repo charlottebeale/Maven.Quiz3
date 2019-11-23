@@ -15,7 +15,8 @@ public class VowelUtils {
     }
 
     public static Integer getIndexOfFirstVowel(String word) {
-    word = word.toLowerCase(); Integer index = -1;
+    word = word.toLowerCase();
+    Integer index = -1;
     for (int i = 0; i < word.length(); i++) {
         if (word.charAt(i) == 'a' || word.charAt(i) == 'e' || word.charAt(i) == 'i' || word.charAt(i) == 'o' || word.charAt(i) == 'u') {
             index = i; break;
@@ -26,8 +27,8 @@ public class VowelUtils {
     }
 
     public static Boolean startsWithVowel(String word) {
-        word = word.toLowerCase();
-        return (word.charAt(0) == 'a' || word.charAt(0) == 'e' || word.charAt(0) == 'i' || word.charAt(0) == 'o' || word.charAt(0) == 'u');
+
+        return isVowel(word.charAt(0));
     }
 
     public static Boolean isVowel(Character character) {
