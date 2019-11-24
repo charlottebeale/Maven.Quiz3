@@ -1,32 +1,38 @@
 package rocks.zipcode.io.quiz3.fundamentals;
 
+import java.util.Arrays;
+
 /**
  * @author leon on 09/12/2018.
  */
 public class PigLatinGenerator {
-    private VowelUtils vowelUtils;
 
     public String translate(String str) {
         String[] words = str.split(" ");
-        String translated = "";
+        for(int i = 0; i < words.length; i++) {
+            if(VowelUtils.isVowel(words[i].charAt(0))){
+                words[i] = words[i] + "way";
+            }
+            else {
+                int x = 0;
+                StringBuilder builder = new StringBuilder();
+                while (!VowelUtils.isVowel(words[i].charAt(x)) && x < words[i].length() - 1){
+                    builder.append(words[i].charAt(x));
+                    x++;
+                }
+                if(x > words[i].length() - 1){
+                    words[i] = words[i] + "ay";
+                }
+                else {
+                    words[i] = words[i].substring(x) + builder.toString() + "ay";
+                }
+            }
+        }
+        StringBuilder builder = new StringBuilder();
         for(String word: words) {
-            translated += translateOneWord(word) + " ";
+            builder.append(word);
+            builder.append(" ");
         }
-        return translated.trim();
-    }
-
-
-    public String translateOneWord(String str) {
-    if(vowelUtils.startsWithVowel(str)) {
-        return str + "way";
-    } else if (!vowelUtils.startsWithVowel(str)) {
-        return str + "ay";
-        }
-    else {
-          Integer indexOfVowel = vowelUtils.getIndexOfFirstVowel(str);
-          String substr1 = str.substring(0, indexOfVowel);
-          String substr2 = str.substring(indexOfVowel);
-          return substr2 + substr1 + "ay";
-        }
+        return builder.toString().substring(0, builder.length() - 1);
     }
  }
